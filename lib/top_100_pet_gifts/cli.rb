@@ -9,14 +9,14 @@ class Top100PetGifts::CLI
 
   def welcome
     puts ""
-    puts "     *********************************************"
-    puts "     *  Welcome to the Top 100 Pet Owner Gifts   *"
-    puts "     *********************************************"
+    puts "     *********************************************".colorize(:light_cyan)
+    puts "     *  Welcome to the Top 100 Pet Owner Gifts   *".colorize(:light_cyan)
+    puts "     *********************************************".colorize(:light_cyan)
   end
 
   def menu
     puts ""
-    puts "              ** MAIN MENU **"
+    puts "                  ** MAIN MENU **".colorize(:light_cyan)
     puts "              1. Random Gift + Info"
     puts "              2. Top 20 Gifts"
     puts "              3. 21st-40th ranked Gifts"
@@ -30,11 +30,11 @@ class Top100PetGifts::CLI
   def user_input (input=nil)
     # binding.pry
     if input != "exit"
-      puts "     *********************************************"
-      puts "     * Please select from the main menu options, *"
-      puts "     * type 'menu' to see main menu again        *"
-      puts "     * or type 'exit':                           *"
-      puts "     *********************************************"
+      puts "     *********************************************".colorize(:light_cyan)
+      puts "     * Please select from the main menu options, *".colorize(:light_cyan)
+      puts "     * type 'menu' to see main menu again        *".colorize(:light_cyan)
+      puts "     * or type 'exit':                           *".colorize(:light_cyan)
+      puts "     *********************************************".colorize(:light_cyan)
       print "     <//> "
       input = gets.strip.downcase
       case input
@@ -77,7 +77,7 @@ class Top100PetGifts::CLI
 
   def print_choices(start)
     puts ""
-    puts "*** PET OWNER GIFTS #{start}-#{start+19} ***"
+    puts "*** PET OWNER GIFTS #{start}-#{start+19} ***".colorize(:light_cyan)
     puts ""
     count = start
     until count > start+19
@@ -88,7 +88,7 @@ class Top100PetGifts::CLI
   end
 
   def random
-    puts "                   RANDOM PICK"
+    puts "                   RANDOM PICK".colorize(:light_yellow)
     input_gift = Random.new.rand(1..100)
     gift(input_gift)
   end
@@ -97,7 +97,7 @@ class Top100PetGifts::CLI
     input_gift = nil
     until range.include? (input_gift.to_i)
       puts ""
-      puts "Which item would you like to know more about?"
+      puts "Which item would you like to know more about?".colorize(:light_cyan)
       input_gift = gets.strip
     end
     gift(input_gift.to_i)
@@ -106,22 +106,21 @@ class Top100PetGifts::CLI
   def gift(input_gift)
     puts ""
     gift = Top100PetGifts::Gifts.find(input_gift)
-    puts "**********************************************************"
-    puts "RANK: #{gift.position}"
-    puts "NAME: #{gift.name}"
+    puts "**********************************************************".colorize(:blue)
+    puts "RANK: ".colorize(:light_yellow)+"#{gift.position}"
+    puts "NAME: ".colorize(:light_yellow)+"#{gift.name}"
     puts ""
-    puts "URL: #{gift.url}"
+    puts "URL: ".colorize(:light_yellow)+"#{gift.url}"
     puts ""
-    puts "Description:"
+    puts "Description:".colorize(:light_yellow)
     puts "#{gift.description}"
-    puts "**********************************************************"
-    # gift = Top100PetGifts::Gifts.find(input_gift)
+    puts "**********************************************************".colorize(:blue)
     another?
   end
 
   def another?
     puts ""
-    puts "Would you like to see another item? (y/n)"
+    puts "Would you like to see another item? (y/n)".colorize(:light_cyan)
     input_another = gets.strip.downcase
     case input_another
     when "y"
@@ -135,15 +134,16 @@ class Top100PetGifts::CLI
 
   def goodbye
 
-    puts"                             .--~~,__"
-    puts"                :-....,-------`~~'._.'"
-    puts"                 `-,,,  ,_      ;'~U'"
-    puts"                 _ ,-' ,'`-__; '--."
-    puts"                (_/'~~'     ''''(;'"
-    puts "     *********************************************"
-    puts "     *   Thank you for visiting, come back soon  *"
-    puts "     *         for more gift ideas               *"
-    puts "     *********************************************"
+    puts"                             .--~~,__".colorize(:light_green)
+    puts"                :-....,-------`~~'._.'".colorize(:light_green)
+    puts"                 `-,,,  ,_      ;'~U'".colorize(:light_green)
+    puts"                 _ ,-' ,'`-__; '--.".colorize(:light_green)
+    puts"                (_/'~~'     ''''(;'".colorize(:light_green)
+    puts "     *********************************************".colorize(:light_yellow)
+    puts "     *   Thank you for visiting, come back soon  *".colorize(:light_yellow)
+    puts "     *         for more gift ideas               *".colorize(:light_yellow)
+    puts "     *********************************************".colorize(:light_yellow)
+    puts ""
   end
 
 end
