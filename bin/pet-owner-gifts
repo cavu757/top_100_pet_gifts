@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require './lib/top_100_pet_gifts'
+
+Top100PetGifts::CLI.new.call
