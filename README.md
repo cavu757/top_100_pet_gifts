@@ -1,8 +1,6 @@
 # Top100PetGifts
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/top_100_pet_gifts`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem scrapes data from the top 100 pet gifts according to www.trendhunter.com.  The gem gives the user a choice to get more info on a random pick from the top 100 pet gifts or to pick a specific ranking and then give user a choice to get more info.
 
 ## Installation
 
@@ -22,7 +20,8 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+1. Start the gem with the executable bin/pet-owner-gifts
+2. Choose item to see more info on and follow prompts
 
 ## Development
 
