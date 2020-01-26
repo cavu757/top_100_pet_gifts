@@ -5,7 +5,7 @@ class Top100PetGifts::Gifts
   @@all=[]
 
   def self.new_from_index(g)
-    self.new(g.search('h4').text, g.search('.ss__imgNum').text,"https://www.trendhunter.com#{g.css('a').attribute('href').value}")
+    self.new(g.search('.thar__title1').text, g.search('.thar__tlNum').text,"https://www.trendhunter.com#{g.attribute('href').value}")
   end
 
   def initialize(name=nil, position=nil, url=nil)
@@ -35,9 +35,8 @@ class Top100PetGifts::Gifts
     @url
   end
 
-
   def description
-    @description ||= info_doc.css(".articleText").text.strip.split("\n").join("").gsub(/(.{1,60})( +|$\n?)|(.{1,60})/,"\\1\\3\n")
+    @description ||= info_doc.search(".tha__articleText").text.strip.split("\n").join("").split("\"").join("").gsub(/(.{1,60})( +|$\n?)|(.{1,60})/,"\\1\\3\n")
   end
 
   def info_doc

@@ -5,7 +5,7 @@ class Top100PetGifts::Scraper
   end
 
   def scrape_gifts_index
-    self.get_data.css(".ss__item")
+    self.get_data.css(".thar--two")
   end
 
   def make_gifts
